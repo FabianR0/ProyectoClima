@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta del Clima</title>
+    <!-- Estilos de Bootstrap para botones y formularios -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Encabezado de la aplicación -->
+        <div class="header">
+            <h1>🌤️ Consulta del Clima</h1>
+            <p>Obtén información meteorológica actualizada de cualquier ciudad del mundo</p>
+        </div>
+
+        <div class="main-content">
+            <!-- Formulario de consulta -->
+            <div class="form-section">
+                <h2 class="section-title">Ingresa la Ciudad a Consultar</h2>
+                
+                <form id="weatherForm">
+                    <div class="form-group">
+                        <label for="cityInput">Nombre de la Ciudad:</label>
+                        <input 
+                            type="text" 
+                            id="cityInput" 
+                            name="city" 
+                            placeholder="Ej: Bogotá, Londres, Nueva York..."
+                            autocomplete="off"
+                        >
+                        <div class="error-message" id="cityError">Por favor, ingresa el nombre de una ciudad</div>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-primary" id="consultBtn">
+                            🔍 Consultar Clima
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="clearBtn">
+                            🗑️ Limpiar Formulario
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Mensaje de carga -->
+                <div class="loading" id="loadingMessage">
+                    <div class="loading-spinner"></div>
+                    <p>Consultando información del clima...</p>
+                </div>
+
+                <!-- Mensaje de éxito -->
+                <div class="success-message" id="successMessage">
+                    ✅ Información del clima cargada exitosamente
+                </div>
+            </div>
+
+            <!-- Sección de resultados -->
+            <div class="results-section" id="resultsSection">
+                <h2 class="section-title">Información Meteorológica</h2>
+                
+                <!-- Tabla de datos climáticos -->
+                <table class="weather-table" id="weatherTable">
+                    <thead>
+                        <tr>
+                            <th>Propiedad</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody id="weatherTableBody">
+                        <!-- Los datos se cargarán dinámicamente aquí -->
+                    </tbody>
+                </table>
+
+                <!-- Contenedor del mapa -->
+                <h3 class="section-title">Ubicación en el Mapa</h3>
+                <div class="map-container" id="mapContainer"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Scripts de Leaflet y la lógica de la aplicación -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
